@@ -31,7 +31,7 @@ def juego_el_21(num_jug):
         print("No es posible repartir cartas de manera equitativa, sólo se aceptan 2,4,5 u 8 jugadores")
     else:
         cartas_repartidas=repartir_cartas(num_jug,int(40/num_jug))
-        #print(cartas_repartidas)
+        #print(cartas_repartidas) para comprobar que se repartieron correctamente
 
     # Iniciamos el juego mostrando por consola
     comienzo_partida = " COMIENZA EL JUEGO "
@@ -40,15 +40,16 @@ def juego_el_21(num_jug):
     print("Montón 2 = " + str(monton_2) + " " + str(puntos_monton_2) + " puntos ")
     print("Montón 3 = " + str(monton_3) + " " + str(puntos_monton_3) + " puntos ")
     print("Montón 4 = " + str(monton_4) + " " + str(puntos_monton_4) + " puntos ")
-    time.sleep(1)
+    time.sleep(3)
     system("cls")
 
+    # Declaramos el bucle
     while puntos_monton_1 < 21 or puntos_monton_2 < 21 or puntos_monton_3 < 21 or puntos_monton_4 < 21:
-
+        # Para jugar por turnos realizamos otro bucle que irá jugador por jugador
         for jug in range(num_jug):
             print("----------------- TURNO JUGADOR " + str(jug+1) + "-----------------")
             cartas_jugador = cartas_repartidas[jug]
-
+            # Queremos conocer las cartas de cada jugador, para que elija una y la coloque en un montón
             for cartas in cartas_jugador:
                 print("Tus cartas: " + str(cartas["tipo"]) + " " + cartas["palo"])
             print("Montón 1 = " + str(monton_1) + " " + str(puntos_monton_1) + " puntos ")
@@ -57,7 +58,7 @@ def juego_el_21(num_jug):
             print("Montón 4 = " + str(monton_4) + " " + str(puntos_monton_4) + " puntos ")
             carta_elegida = int(input("¿Qué carta quieres poner? "))
             monton_elegido = int(input("¿En qué montón? "))
-
+            # Para que bloquee el montón con 21 o más puntos hacemos otro bucle
             while (monton_elegido == 1 and puntos_monton_1 >=21) or (monton_elegido == 2 and puntos_monton_2 >= 21) or (monton_elegido == 3 and puntos_monton_3 >= 21) or (monton_elegido == 4 and puntos_monton_4 >= 21):
                 monton_elegido = int(input("Ese montón ya tiene 21 o más puntos,diga otro montón "))
 
@@ -66,31 +67,45 @@ def juego_el_21(num_jug):
                 puntos_monton_1 +=(cartas_jugador[carta_elegida]["valor"])
                 if puntos_monton_1 == 21:
                     puntos_jugadores[jug] +=1
-                    print(puntos_jugadores)
+                    print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
+                    time.sleep(3)
+                    if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
+                        break
             if monton_elegido == 2:
                 monton_2.append(cartas_jugador[carta_elegida])
                 puntos_monton_2 += (cartas_jugador[carta_elegida]["valor"])
                 if puntos_monton_2 == 21:
                     puntos_jugadores[jug] +=1
-                    print(puntos_jugadores)
+                    print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
+                    time.sleep(3)
+                    if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
+                        break
             if monton_elegido == 3:
                 monton_3.append(cartas_jugador[carta_elegida])
                 puntos_monton_3 += (cartas_jugador[carta_elegida]["valor"])
                 if puntos_monton_3 == 21:
                     puntos_jugadores[jug] +=1
-                    print(puntos_jugadores)
+                    print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
+                    time.sleep(3)
+                    if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
+                        break
             if monton_elegido == 4:
                 monton_4.append(cartas_jugador[carta_elegida])
                 puntos_monton_4 += (cartas_jugador[carta_elegida]["valor"])
                 if puntos_monton_4 == 21:
                     puntos_jugadores[jug] +=1
-                    print(puntos_jugadores)
+                    print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
+                    time.sleep(3)
+                    if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
+                        break
             cartas_jugador.pop(carta_elegida)
 
-        if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
-            break
-            break
-    print("Ha ganado el jugador : " + str(ganadores[0]))
+
+    print("----------------- FIN DEL JUEGO -----------------")
+    print("------------------ MARCADORES ------------------")
+    for jug in range(num_jug):
+        print(" JUGADOR " + str(jug+1) + ":" + str(puntos_jugadores[jug]) + " puntos")
+
 
 
 
