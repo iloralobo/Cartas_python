@@ -40,8 +40,10 @@ def juego_el_21(num_jug):
     print("Montón 2 = " + str(monton_2) + " " + str(puntos_monton_2) + " puntos ")
     print("Montón 3 = " + str(monton_3) + " " + str(puntos_monton_3) + " puntos ")
     print("Montón 4 = " + str(monton_4) + " " + str(puntos_monton_4) + " puntos ")
-    time.sleep(3)
+    time.sleep(1)
     system("cls")
+    time.sleep(1)
+
 
     # Declaramos el bucle
     while puntos_monton_1 < 21 or puntos_monton_2 < 21 or puntos_monton_3 < 21 or puntos_monton_4 < 21:
@@ -68,7 +70,9 @@ def juego_el_21(num_jug):
                 if puntos_monton_1 == 21:
                     puntos_jugadores[jug] +=1
                     print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
-                    time.sleep(3)
+                    time.sleep(1)
+                    system("cls")
+                    time.sleep(2)
                     if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
                         break
             if monton_elegido == 2:
@@ -77,7 +81,9 @@ def juego_el_21(num_jug):
                 if puntos_monton_2 == 21:
                     puntos_jugadores[jug] +=1
                     print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
-                    time.sleep(3)
+                    time.sleep(1)
+                    system("cls")
+                    time.sleep(2)
                     if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
                         break
             if monton_elegido == 3:
@@ -86,7 +92,9 @@ def juego_el_21(num_jug):
                 if puntos_monton_3 == 21:
                     puntos_jugadores[jug] +=1
                     print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
-                    time.sleep(3)
+                    time.sleep(1)
+                    system("cls")
+                    time.sleep(2)
                     if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
                         break
             if monton_elegido == 4:
@@ -95,7 +103,9 @@ def juego_el_21(num_jug):
                 if puntos_monton_4 == 21:
                     puntos_jugadores[jug] +=1
                     print("¡¡PUNTO PARA EL JUGADOR " + str(jug+1) + "!!!")
-                    time.sleep(3)
+                    time.sleep(1)
+                    system("cls")
+                    time.sleep(2)
                     if puntos_monton_1 >= 21 and puntos_monton_2 >= 21 and puntos_monton_3 >= 21 and puntos_monton_4 >= 21:
                         break
             cartas_jugador.pop(carta_elegida)
